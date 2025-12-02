@@ -58,7 +58,7 @@ def commits_graph():
     data = response.json()
 
 minutes_list = []
-    for commit in data:
+for commit in data:
         date_string = commit['commit']['author']['date']
         date_object = datetime.strptime(date_string, '%Y-%m-%dT%H:%M:%SZ')
         minutes_list.append(date_object.minute)
