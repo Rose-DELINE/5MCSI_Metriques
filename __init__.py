@@ -59,11 +59,10 @@ def commits_graph():
 
 minutes_list = []
 for commit in data:
-    date_string = commit['commit']['author']['date']
-    date_object = datetime.strptime(date_string, '%Y-%m-%dT%H:%M:%SZ')
-    minutes_list.append(date_object.minute)
-
-    return jsonify(minutes_list=minutes_list)
+date_string = commit['commit']['author']['date']
+date_object = datetime.strptime(date_string, '%Y-%m-%dT%H:%M:%SZ')
+minutes_list.append(date_object.minute)
+return jsonify(minutes_list=minutes_list)
 
 @app.route("/commits/")
 def commits_page():
