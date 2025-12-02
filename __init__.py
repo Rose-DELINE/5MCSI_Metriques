@@ -50,6 +50,22 @@ def extract_minutes(date_string):
     minutes = date_object.minute
     return jsonify({'minutes': minutes})
 
+@app.route('/commits/')
+def commits_graph():
+    # URL de l'API GitHub pour ton repo (forké)
+    url = 'https://api.github.com/repos/TON_COMPTE/5MCSI_Metriques/commits'
+    response = requests.get(url)
+    data = response.json()
+
+minutes_list = []
+    for commit in data:
+        date_string = commit['commit']['author']['date']
+        date_object = datetime.strptime(date_string, '%Y-%m-%dT%H:%M:%SZ')
+        minutes_list.append(date_object.minute)
+
+    return jsonify(minutes_list=minutes_list)
+
+
 
 if __name__ == "__main__":
   app.run(debug=True)
