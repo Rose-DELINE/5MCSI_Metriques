@@ -65,6 +65,9 @@ minutes_list = []
 
     return jsonify(minutes_list=minutes_list)
 
+@app.route("/commits/")
+def commits_page():
+    return render_template("commits.html")
 
 
 if __name__ == "__main__":
