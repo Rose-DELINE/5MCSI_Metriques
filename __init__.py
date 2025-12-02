@@ -29,6 +29,10 @@ def meteo():
         results.append({'Jour': dt_value, 'temp': temp_day_value})
     return jsonify(results=results)
   from flask import render_template
+from flask import render_template
 
+@app.route("/rapport/")
+def mongraphique():
+    return render_template("graphique.html")
 if __name__ == "__main__":
   app.run(debug=True)
