@@ -41,5 +41,15 @@ def histogramme():
 def contact():
     return render_template("contact.html")
 
+from datetime import datetime
+import requests
+
+@app.route('/extract-minutes/<date_string>')
+def extract_minutes(date_string):
+    date_object = datetime.strptime(date_string, '%Y-%m-%dT%H:%M:%SZ')
+    minutes = date_object.minute
+    return jsonify({'minutes': minutes})
+
+
 if __name__ == "__main__":
   app.run(debug=True)
