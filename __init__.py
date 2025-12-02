@@ -72,7 +72,7 @@ def contact():
                                                                                                                                        
 @app.route('/')
 def hello_world():
-    return render_template('hello.html') #Comm2
+    return render_template('hello.html') #Comm
   
 if __name__ == "__main__":
   app.run(debug=True)
